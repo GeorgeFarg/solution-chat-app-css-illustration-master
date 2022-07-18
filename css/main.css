@@ -1,0 +1,353 @@
+:root {
+    /*(sub-heading at the top of the app UI):*/ --Pale-Violet :hsl(276, 100%, 81%);
+    /*(chat on the left)*/--Moderate-Violet : hsl(276, 55%, 52%);
+    /*(chat on the right)*/--Desaturated-Dark-Violet : hsl(271, 15%, 43%);
+    /*(placeholder text)*/--Grayish-Blue : hsl(206, 6%, 79%);
+    /*(main heading)*/--Very-Dark-Desaturated-Violet : hsl(271, 36%, 24%);
+    /*(paragraph)*/--Dark-Grayish-Violet : hsl(270, 7%, 64%);
+                        /*Gradients*/
+    --Light-Magenta-Light-Violet: hsl(293, 100%, 63%), hsl(264, 100%, 61%);   
+                        /*secondary*/
+    /*(app background)*/--Light-Grayish-Violet : hsl(270, 20%, 96%);
+    /*(submit button background)*/--Very-Dark-Desaturated-Violet : hsl(271, 36%, 24%);
+    /*(radio button outline)*/--Very-Light-Magenta : hsl(289, 100%, 72%);
+}
+
+/*start global styling*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {height: 100%;}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    overflow: hidden;
+}
+.shape1 {
+    position: absolute;
+    width: 550px;
+    height: 90%;
+    border-radius: 0% 0% 50% 50% / 0% 0% 30% 45%;
+    left: -160px;
+    top: 0;
+    background-image: linear-gradient(200deg, hsl(293, 100%, 63%) 0%, hsl(264, 100%, 61%) 100%);
+    z-index: -1;
+}
+
+.shape2 {
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    width: 530px;
+    height: 90%;
+    background-color: #f9f4fa73;
+    right: -115px;
+    bottom: 0;
+    z-index: -1;
+}
+
+main {
+    position: absolute;
+    left: 47%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    width: 51%;
+    height: fit-content;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: center;
+    grid-template-rows: initial;
+    gap: 8%;
+}
+
+@media (max-width: 450px) {
+    body {
+        height: 100%;
+        overflow: visible;
+        width: fit-content;
+    }
+
+    .shape1 {
+        left: -50%;
+        top: 0;
+        width: 100%;
+        height: 60%;
+        border-radius: 0 0 50% 50%;
+    }
+    
+    .shape2 {
+        right: 0;
+        bottom: -250px;
+        width: 50%;
+        height: 60%;
+        border-radius: 50% 0% 100% 0% / 50% 100% 0% 0%;
+    }
+
+    main {
+        width: 70%;
+        height: fit-content;
+        top: 450px;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+    }
+}
+/*end global styling*/
+/*start phone styling*/
+.phone {
+    height: fit-content;
+    width: 270px;
+    border: 11px solid white;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 20%);
+}
+@media (max-width: 450px) {
+    .phone {
+        margin-top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.phone::before {
+    content: "";
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    background-color: white;
+}
+
+.phone header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to left, var(--Light-Magenta-Light-Violet));
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.phone header .header-content {
+    height: calc(100% - 25px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.phone header .header-content .arrow {
+    border: solid white;
+    border-radius: 1px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-right: 8px;
+}
+    
+.phone header .header-content .userinfo {
+    display: flex;
+    width: 100%;
+}
+
+.phone header .header-content .userinfo img {
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.phone header .header-content .userinfo .header-text {
+    margin-left: 10px;
+}
+
+.phone header .header-content .userinfo .header-text h4 {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+}
+
+.phone header .header-content .userinfo .header-text p {
+    margin: 0;
+    color: var(--Pale-Violet);
+    font-size: 8px;
+}
+
+.phone header .header-content .threedots {
+    width: 10px;
+    height: calc(100% / 3);
+    background-image: radial-gradient(circle, white 1px, transparent 2px);
+    background-size: 100% 33.33%;
+}
+
+.phone .chatting-box {
+    padding: 10px;
+    height: 100%;
+    background-color: var(--Light-Grayish-Violet);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phone .chatting-box .send-text {
+    width: fit-content;
+    max-width: 145px;
+    height: fit-content;
+    background-color: #ede5f4;
+    border-radius: 10px 10px 10px 5px;
+    padding: 10px;
+}
+
+.phone .chatting-box .send-text p {
+    font-size: 9px;
+    color: var(--Moderate-Violet);
+    margin: 0;
+}
+
+.phone .chatting-box .receive-images {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+.phone .chatting-box .receive-images img{
+    width: 40px;
+    border-radius: 10px;
+}
+
+.phone .chatting-box .receive-text {
+    width: fit-content;
+    max-width: 130px;
+    padding: 10px;
+    border-radius: 10px 10px 5px 10px;
+    height: fit-content;
+    align-self: flex-end;
+    background-color: white;
+}
+
+.phone .chatting-box .receive-text p {
+    color: var(--Desaturated-Dark-Violet);
+    margin: 0;
+    font-size: 8px;
+}
+
+.phone .chatting-box .send-price {
+    display: flex;
+    height: fit-content;
+    width: 180px;
+    background-image: linear-gradient(to right, var(--Light-Magenta-Light-Violet));
+    padding: 10px 20px 10px 15px;
+    border-radius: 10px 10px 10px 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phone .chatting-box .send-price .walk-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.phone .chatting-box .send-price .radio {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 1px solid var(--Pale-Violet);
+    border-radius: 50%;
+}
+
+.phone .chatting-box .send-price p {
+    font-size: 8px;
+    color: var(--Pale-Violet);
+    margin: 0;
+}
+
+.phone .chatting-box .send-price h2 {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+.phone .chatting-box .text-typing {
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 50px;
+}
+
+.phone .chatting-box .text-typing label {
+    font-size: 10px;
+    margin-left: 15px;
+    color: var(--Grayish-Blue);
+}
+
+.phone .chatting-box .text-typing .button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--Very-Dark-Desaturated-Violet);
+}
+
+.phone .chatting-box .text-typing .button::before {
+    content: "";
+    position: absolute;
+    border: solid white;
+    border-radius: 1px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    /* margin-right: 8px; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+}
+/*end phone styling*/
+/*start text styling*/
+.booking {
+    width: 460px;
+}
+
+
+
+.booking .title h1 {
+    color: var(--Very-Dark-Desaturated-Violet);
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0px 0 20px 0;
+}
+
+.booking .bokking-text p {
+    color: var(--Dark-Grayish-Violet);
+    line-height: 27px;
+    margin: 0;
+}
+
+@media (max-width: 450px) {
+
+    .booking{
+        width: 300px;
+        text-align: center;
+    }
+}
+/*end text styling*/
